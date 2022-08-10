@@ -1,14 +1,16 @@
 let searchForm = document.getElementById("searchForm");
 let city = document.getElementById("cityInput");
 
-let api_key = prompt("Please enter your api key.")
+let api_key_weathermap = prompt("Please enter your api key.")
+
+
 
 searchForm.addEventListener("submit", (event) => {
     // prevents the form from sending the data to a url, and refreshing the page
     event.preventDefault();
 
     fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=d7c25876d4f20385a0372f2cae2db03f&units=imperial`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${api_key_weathermap}&units=imperial`
         )
         .then((data) => {
             return data.json();
@@ -27,7 +29,7 @@ searchForm.addEventListener("submit", (event) => {
 
 
     fetch(
-        `https://api.giphy.com/v1/gifs/translate?api_key=${api_key}&s=city`
+        `https://api.giphy.com/v1/gifs/translate?api_key=LvM2qVpX9reYwFDOIIceoI0Dx0oqDSgH&s=city`
     )
     .then(async (data) => {
         let parsedData = await data.json();
